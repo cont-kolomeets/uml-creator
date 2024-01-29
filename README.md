@@ -15,3 +15,4 @@ Press F1 to see the available options and hot keys.
 
 # Screenshots
 
+![image](https://github.com/cont-kolomeets/uml-creator/assets/5318527/518f801c-62e8-4e83-9b26-9aaa8a0da1e4)
