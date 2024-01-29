@@ -173,6 +173,7 @@ package items
 			graph.lineColor = 0x555555;
 			graph.lineWeight = 2;
 			graph.lineAlpha = 0.8;
+			graph.isDash = start.cardType === CardType.INTERFACE || end.cardType === CardType.INTERFACE;
 			graph.drawBezierCurve(point1.x, point1.y, point1.x + offsetXPoint1, point1.y + offsetYPoint1, point2.x + offsetXPoint2, point2.y + offsetYPoint2, point2.x, point2.y);
 			
 			//draw center

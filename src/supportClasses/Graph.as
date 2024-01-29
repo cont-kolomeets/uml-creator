@@ -9,11 +9,11 @@ package supportClasses
 	 */
 	public class Graph extends Sprite
 	{
-		public var precision:Number = 0.01;
 		public var center:Point = new Point();
 		public var lineColor:int = 0;
 		public var lineWeight:int = 1;
 		public var lineAlpha:Number = 1;
+		public var isDash:Boolean = false;
 		
 		public function Graph()
 		{
@@ -30,9 +30,10 @@ package supportClasses
 			var ay:Number = y3 - y0 - cy - by;
 			
 			graphics.clear();
-			graphics.lineStyle(lineWeight, lineColor, lineAlpha);
-			
-			var cycles:int = 1 / precision;
+
+			var dist:Number = Math.sqrt((x3 - x0) * (x3 - x0) + (y3 - y0) * (y3 - y0));
+			var precision:Number = Math.min(1 / dist * 3, 0.02);
+			var cycles:int = Math.round(1 / precision);
 			
 			var curX:Number = x0;
 			var curY:Number = y0;
@@ -44,9 +45,11 @@ package supportClasses
 				graphics.moveTo(curX, curY);
 				curX = ax * t * t * t + bx * t * t + cx * t + x0;
 				curY = ay * t * t * t + by * t * t + cy * t + y0;
+				
+				graphics.lineStyle(lineWeight, lineColor, !isDash || i % 2 ? lineAlpha : 0);
 				graphics.lineTo(curX, curY);
 				
-				if (int(t * 100) == 50)
+				if (i === Math.floor(cycles / 2))
 				{
 					center.x = curX;
 					center.y = curY;

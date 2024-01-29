@@ -17,6 +17,7 @@ package items
 	public class Knot extends Sprite
 	{
 		public var type:String;
+		public var cardType:String;
 		public var state:String = KnotState.DISCONNECTED;
 		public var position:String = KnotPosition.NONE;
 		public var uniqueKey:String = "knot-" + Utils.generateUniqueID();
@@ -28,10 +29,11 @@ package items
 		
 		private var knotSkin:KnotSkin = new KnotSkin();
 		
-		public function Knot(type:String, position:String)
+		public function Knot(type:String, position:String, cardType:String = null)
 		{
 			this.type = type;
 			this.position = position;
+			this.cardType = cardType;
 			doubleClickEnabled = true;
 			knotSkin.doubleClickEnabled = true;
 			knotSkin.hostComponent = this;

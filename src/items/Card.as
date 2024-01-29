@@ -121,7 +121,7 @@ package items
 			if (type == CardType.FILE || type == CardType.COMMENT || type == CardType.RECTANGLE || type == CardType.DIAMOND)
 				lowerKnot = new Knot(KnotType.POINT, KnotPosition.BOTTOM);
 			else
-				lowerKnot = new Knot(KnotType.FILLED_ARROW, KnotPosition.BOTTOM);
+				lowerKnot = new Knot(KnotType.FILLED_ARROW, KnotPosition.BOTTOM, type);
 			
 			leftKnot = new Knot(KnotType.POINT, KnotPosition.LEFT);
 			
